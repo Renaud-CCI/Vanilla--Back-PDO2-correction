@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Gestion de l'hopital</h1>
-    
-    <a href="ajoutpatient.php"> ajouter un patient </a>
+<?php
+include('partial/header.php');
+?>
+<section>
+    <div>
+        <p>something</p>
+    </div>
 
-</body>
-</html>
+</section>
+<?php
+
+include('partial/footer.php');
+
+

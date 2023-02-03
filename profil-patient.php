@@ -1,5 +1,5 @@
 <?php
-require_once('connexion.php');
+require_once('traitement/connexion.php');
 
 $id = $_GET['id'];
 
@@ -12,19 +12,9 @@ $patient = $request->fetch();
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
+<?php
+include('partial/header.php');
+?>
     <style>
         .titre {
             text-align: center;
@@ -59,6 +49,7 @@ $patient = $request->fetch();
                 <th>birthdate</th>
                 <th>phone</th>
                 <th>mail</th>
+                <th>modifier</th>
 
             </tr>
             <form action='profil-patient.php' method='post'>
@@ -72,11 +63,16 @@ $patient = $request->fetch();
                         <td>" . $patient["birthdate"] . "</td>
                         <td>" . $patient["phone"] . "</td>
                         <td>" . $patient["mail"] . "</td>
+                        <td>  
+                            <form action='modification-patient.php' method='post'>
+                                <input type='hidden' name='id' value=".$patient['id'].">
+                                <input type='submit' value='modifier'>
+                            </form> 
+                        </td>
                     </tr>";
             ?>
         </table>
     </section>
 
-</body>
-
-</html>
+<?php
+include('partial/footer.php');
