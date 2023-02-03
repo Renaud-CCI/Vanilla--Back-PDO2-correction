@@ -2,13 +2,22 @@
 require_once('traitement/connexion.php');
 
 
-    // requete de tous les patients
-    $request =  $db->query('SELECT * FROM patients');
+if (isset ($_GET['search']) && !empty($_GET['search'])){
+    $search = htmlspecialchars($_GET['search']);
+    $request = $db->query(" SELECT *
+                            FROM patients
+                            WHERE lastname LIKE '%{$search}%'
+                            ORDER BY lastname");
+} else {
+    $request = $db->query('SELECT * FROM patients ORDER BY lastname');  
+}
+
+
     $allpatients = $request->fetchAll();
 ?>
 
 <?php
-include('partial/header.php');
+include('../htdocs/partial/header.php');
 ?>
     <style>
         .titre {
@@ -36,7 +45,13 @@ include('partial/header.php');
     <section>
         <!-- affichage de tous les clients -->
         <h1 class="titre"> Clients </h1>
-
+        <br>
+        <form action="liste-patient.php" method="get">
+            <label for="search">Rechercher un patient : </label>
+            <input type="search" name="search" placeholder="Nom">
+            <input type="submit" name="Trouver">
+        </form>
+        <br>
         <table>
             <tr>
                 <th>Last Name</th>
@@ -47,9 +62,7 @@ include('partial/header.php');
                 <th>profile</th>
 
             </tr>
-            <form action='profil-patient.php' method='post'>
-                
-            </form>
+
             
             <?php foreach ($allpatients as $patient) {
                 echo "<tr>

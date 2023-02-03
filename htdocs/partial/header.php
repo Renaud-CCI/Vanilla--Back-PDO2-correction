@@ -19,12 +19,14 @@
     </label>
     <input type="checkbox" id="hamburger">
     <ul>
-      <li><a href="/Hospital2n/ajoutpatient.php"> ajouter un patient </a></li>
-      <li><a href="/Hospital2n/liste-patient.php"> liste des patients </a></li>
+      <li><a href="/ajoutpatient.php"> ajouter un patient </a></li>
+      <li><a href="/liste-patient.php"> liste des patients </a></li>
+      <li><a href="/ajout-rendezvous.php"> ajouter un rdv </a></li>
+      <li><a href="/liste-rendezvous.php"> liste des rdv </a></li>
 
       <li>
         
-          <span><a href="/Hospital2n/index.php"> Gestion de l'hopital</a></span>
+          <span><a href="/index.php"> Gestion de l'hopital</a></span>
         
       </li>
  
